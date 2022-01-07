@@ -1,8 +1,9 @@
 select distinct from_address from `bigquery-public-data.crypto_ethereum.transactions`
 where 
-to_address = '0x3fda67f7583380e67ef93072294a7fac882fd7e7'
-and input like '0xf2b9fdb8%'
-limit 1
+	to_address = '0x3fda67f7583380e67ef93072294a7fac882fd7e7' -- Compound V1 contract
+	and input like '0xf2b9fdb8%' -- Supply Method ID
+	and receipt_status = 1 -- processed tx
+	and block_timestamp <= '2020-06-01'
 
 union all 
 
@@ -18,4 +19,6 @@ where
         '0x12392f67bdf24fae0af363c24ac620a2f67dad86',	--Compound: cTUSD Token
         '0xccf4429db6322d5c611ee964527d42e5d685dd6a',	--Compound: cWBTC2 Token
         '0x80a2ae356fc9ef4305676f7a3e2ed04e12c33946'    --Compound: cYFI Token
-    and input like '0xa0712d68%'
+    and input like '0xa0712d68%' -- Mint method id
+    and receipt_status = 1 -- processed tx
+    and block_timestamp <= '2020-06-01'
