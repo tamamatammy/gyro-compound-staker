@@ -21,8 +21,8 @@ Addresses are extracted from the Grpah and saved as pickle file ```df_mint_addre
     orderBy: blockTime
     orderDirection: desc
   ) {
+to
 blockTime
-blockNumber
 }
 }
 ```
